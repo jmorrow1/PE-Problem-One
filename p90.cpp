@@ -2,15 +2,106 @@
 #include "problems.h"
 using namespace std;
 
-void itSolution() {
-    
-}
-
 bool eq(int a, int b) {
     return (a == b || a == 6 && b == 9 || a == 9 && b == 6); 
 }
 
-void solveProblemNinety() {
+/*Recursive Solution*/
+int n=0; 
+int digitPairs[][2] = {{0, 1}, {0, 4}, {0, 9}, {1, 6}, {2, 5}, {3, 6}, {4, 9}, {6, 4}, {8, 1}}; 
+
+bool valid(int comb1[], int comb2[]) {
+    for (int i=0; i<9; i++) {
+        bool comb1_matches_1st_digit = false;
+        bool comb2_matches_1st_digit = false; 
+        bool comb1_matches_2nd_digit = false; 
+        bool comb2_matches_2nd_digit = false; 
+        for (int j=0; j<6; j++) {
+            if (eq(digitPairs[i][0], comb1[j])) {
+                comb1_matches_1st_digit = true; 
+            }
+            if (eq(digitPairs[i][0], comb2[j])) {
+                comb2_matches_1st_digit = true; 
+            }
+            if (eq(digitPairs[i][1], comb1[j])) {
+                comb1_matches_2nd_digit = true; 
+            }
+            if (eq(digitPairs[i][1], comb2[j])) {
+                comb2_matches_2nd_digit = true; 
+            }
+        } 
+        if ((comb1_matches_1st_digit && comb2_matches_2nd_digit) ||
+                (comb2_matches_1st_digit && comb1_matches_2nd_digit)) {
+            continue; 
+        }    
+        else {
+            return false; 
+        }
+    }
+    return true; 
+   
+}
+
+int generate(int cube1[], int cube2[], int pos) {
+    //if arrangement is complete
+    if (pos == 6) {
+        //cout << cube1[0] << ", " << cube1[1] << ", " << cube1[2] << ", " << cube1[3] << ", " << cube1[4] << ", " << cube1[5] << endl;
+        //check to see if the arrangement is valid
+        if (valid(cube1, cube2)) {
+            n++;
+        }
+    }
+    else {
+        int startpt = 0; 
+        if (pos > 0) {
+            startpt = cube1[pos-1] + 1; 
+        }
+        for (int i=startpt; i<10; i++) {
+             bool firstNumUsed=false; 
+             for (int j=0; j<pos; j++) {
+                 if (cube1[j] == i) {
+                     firstNumUsed = true;
+                     break; 
+                 }
+             }
+             
+             if (!firstNumUsed) {
+                 cube1[pos] = i; 
+                              
+                 startpt = 0; 
+                 if (pos > 0) {
+                     startpt = cube2[pos-1] + 1; 
+                 }
+                 for (int j=startpt; j<10; j++) {
+                     bool secondNumUsed=false;
+                     for (int k=0; k<pos; k++) {
+                        if (cube2[k] == j) {
+                            secondNumUsed = true; 
+                            break;
+                        }
+                     }
+                     if (!secondNumUsed) {   
+                         cube2[pos] = j; 
+                        //if cube1[pos] and cube2[pos] are okay (no repeats in a cube),
+                        //keep generating the combination
+                        generate(cube1, cube2, pos+1); 
+                     }
+                 }              
+             }
+        }
+    }
+}
+
+int recurSolution() {
+    int cube1[] = {0, 0, 0, 0, 0, 0}; 
+    int cube2[] = {0, 0, 0, 0, 0, 0};
+    generate(cube1, cube2, 0); 
+    n /= 2; //eliminate repeats
+    return n; 
+}
+
+/*Iterative Solution*/
+int itSolution() {
     int digitPairs [][2] = {{0, 1}, {0, 4}, {0, 9}, {1, 6}, {2, 5}, {3, 6}, {4, 9}, {6, 4}, {8, 1}}; 
     //iterate through all the possible cubes
     /*
@@ -85,5 +176,14 @@ void solveProblemNinety() {
         }
     }
     count /= 2; //eliminate repeats
+    return count; 
+}
+
+void solveProblemNinety() {
+    int count = itSolution(); 
+    cout << "Iterative solution " << endl;
     cout << "count = " << count << endl; 
+    count = recurSolution(); 
+    cout << "Recursive solution " << endl; 
+    cout << "count = " << count << endl;
 }

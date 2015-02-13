@@ -12,11 +12,10 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    /*
     cout << "Problem One with n=1000" << endl;
     solveProblemOne(1000); 
     cout << "Problem Two" << endl; 
-    */
+
     solveProblemNinety(); 
     return 0;
 }

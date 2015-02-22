@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>PokerHand.h</itemPath>
       <itemPath>problems.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -13,8 +14,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>PokerHand.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>p1.cpp</itemPath>
+      <itemPath>p54.cpp</itemPath>
       <itemPath>p90.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -39,9 +42,15 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="PokerHand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PokerHand.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="p1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="p54.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="p90.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -68,9 +77,15 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="PokerHand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PokerHand.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="p1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="p54.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="p90.cpp" ex="false" tool="1" flavor2="0">
       </item>

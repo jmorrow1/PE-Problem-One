@@ -35,8 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/PokerHand.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/p1.o \
+	${OBJECTDIR}/p54.o \
 	${OBJECTDIR}/p90.o
 
 
@@ -64,6 +66,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/project_euler.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/project_euler ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/PokerHand.o: PokerHand.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PokerHand.o PokerHand.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -73,6 +80,11 @@ ${OBJECTDIR}/p1.o: p1.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/p1.o p1.cpp
+
+${OBJECTDIR}/p54.o: p54.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/p54.o p54.cpp
 
 ${OBJECTDIR}/p90.o: p90.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -32,7 +32,7 @@ int order_1_solution(int n) {
     return currentSum; 
 }
 
-void solveProblemOne(int n) {
+void solveProblem1(int n) {
     int answer = order_n_solution(n); 
     cout << "o(n) solution : " << endl; 
     cout << answer << endl; 

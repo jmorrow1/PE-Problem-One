@@ -179,7 +179,7 @@ int itSolution() {
     return count; 
 }
 
-void solveProblemNinety() {
+void solveProblem90() {
     int count = itSolution(); 
     cout << "Iterative solution " << endl;
     cout << "count = " << count << endl; 

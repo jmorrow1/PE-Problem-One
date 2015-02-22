@@ -5,6 +5,7 @@
  * Created on February 12, 2015, 12:35 PM
  */
 
-void solveProblemOne(int n); 
-void solveProblemNinety(); 
+void solveProblem1(int n); 
+void solveProblem90(); 
+void solveProblem54(); 
 
